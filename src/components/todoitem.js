@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 
 class TodoItem extends Component {
-  componentWillMount() {
-		this.setState({
+  constructor(props) {
+    super(props);
+		this.state = {
 			checked: false
-		});
+		};
 	}
   onChange(e) {
     this.setState({
@@ -20,7 +21,7 @@ class TodoItem extends Component {
 					type="checkbox"
 					onChange={this.onChange.bind(this)}
 				/>
-        {this.props.item.title}
+        {this.props.item}
       </li>
     );
   }

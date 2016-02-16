@@ -7,29 +7,23 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      todo: [{
-        title: "Hello",
-        done: false
-      }]
+      todos: []
     };
   }
   addList(term) {
-    this.state.todo.push({
-      title: term,
-      done: false
-    });
+    this.state.todos.push(term);
     this.setState({
-      todo: this.state.todo
+      todos: this.state.todos
     });
   }
   render(){
     return (
       <div>
         <Input onInputTermChange={this.addList.bind(this)} />
-        <TodoList list={this.state.todo} />
+        <TodoList listItem={this.state.todos} />
       </div>
     );
   }
 };
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.getElementById('content'));
